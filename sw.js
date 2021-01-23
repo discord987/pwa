@@ -1,6 +1,6 @@
 self.addEventListener('install', evt=>{
 //Création d'une instance de cache, et sauvegarde des pages dans cette instance
-    caches.open('lpdwca-PWA').then(
+    caches.open('PWA-for-SYNVA').then(
                 cache=>{
                     cache.addAll([
                         'index.html',
@@ -28,7 +28,7 @@ self.addEventListener('fetch', evt=>{
             */
             return fetch(evt.request).then(
                 newResponse=>{
-                    caches.open('lpdwca-PWA').then(
+                    caches.open('PWA-for-SYNVA').then(
                         cache=>cache.put(evt.request, newResponse
                         ));
                         /*puisqu'une réponse ne peut être utilisée 2 fois, si on a besoin de l'utiliser une seconde fois, on doit la cloner
